@@ -1,0 +1,69 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Studio\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @alch/alchemy-sdk
+
+PATH: 
+  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\libnvvp;C:\Python310\Scripts\;C:\Python310\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.4\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.4\libnvvp;C:\Program Files\AdoptOpenJDK\jdk-16.0.1.9-hotspot\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3\libnvvp;D:\VSDL\DEPOTTOOLS;C:\Python39\Scripts\;C:\Python39\;I:\Python\Scripts\;I:\Python\;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\PuTTY\;C:\Gradle\gradle-6.8.3\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\ProgramData\chocolatey\bin;D:\Git LFS;C:\Program Files\dotnet\;C:\Program Files\OpenJDK\openjdk-8u302-b08\bin;C:\Program Files\Go\bin;C:\Program Files\nodejs\;C:\Program Files\NVIDIA Corporation\Nsight Compute 2021.3.1\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Git\cmd;C:\Users\Studio\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\Studio\AppData\Local\Programs\Python\Python38\;C:\Users\Studio\.local\share\solana\install\active_release\bin;C:\Users\Studio\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Studio\AppData\Local\Programs\Python\Python39\;C:\Users\Studio\AppData\Local\Microsoft\WindowsApps;C:\Users\Studio\.dotnet\tools;C:\Users\Studio\AppData\Roaming\netlify\Config\helper\bin;C:\Users\Studio\.dotnet\tools;D:\ART SHIT\Microsoft VS Code\bin;C:\Program Files\JetBrains\PyCharm 2021.1.2\bin;C:\Program Files\Git\git-cmd.exe;C:\Users\Studio\AppData\Local\Programs\IPFS Desktop\resources\app.asar.unpacked\src\ipfs-on-path\scripts\bin-win;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.4\bin;C:\Users\Studio\.dotnet\tools;C:\Users\Studio\go\bin;C:\Program Files\Git;C:\Users\Studio\AppData\Roaming\npm;C:\Program Files\nodejs;C:\Users\Studio\.local\share\solana\install\active_release\bin;D:\Pictures\CheForche\BLOKQR\BLKQRTWITTER\flutter\bin;C:\Users\St
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'D:\RANDY\VAL\GOBMAN\GOBMANClaim\node_modules\bufferutil\prebuilds\win32-x64\node.napi.node'
+
+npm manifest: 
+  {
+    "name": "gobman_dapp",
+    "version": "1.0.0",
+    "description": "Kamp Kilmer GoBMan",
+    "private": true,
+    "dependencies": {
+      "@alch/alchemy-sdk": "^1.0.4",
+      "@crossmint/client-sdk-react-ui": "^0.1.7-alpha.1",
+      "@crossmint/client-sdk-vanilla-ui": "^0.0.3-alpha.1",
+      "@walletconnect/web3-provider": "^1.7.8",
+      "@web3auth/web3auth": "^1.1.0",
+      "magic-sdk": "^8.1.1",
+      "moralis": "^1.8.0",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "react-moralis": "^1.4.0",
+      "react-redux": "^7.2.4",
+      "react-scripts": "4.0.3",
+      "redux": "^4.1.1",
+      "redux-thunk": "^2.3.0",
+      "styled-components": "^5.3.0",
+      "web-vitals": "^1.0.1",
+      "web3": "^1.5.1",
+      "web3-eth-contract": "^1.5.2"
+    },
+    "author": "Daniel Eugene Botha (HashLips)",
+    "license": "MIT",
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

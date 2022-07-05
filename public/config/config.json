@@ -1,0 +1,26 @@
+{
+  "Transaction": "Check Your Transaction on the Blockchain",
+  "GOBMAN_CLAIM_ADDRESS":"0x193F6F149AFe0797BE0C6be878331734A99ed298",
+  "GOBMAN_ADDRESS": "0xF0eDb09401Ddf2bc56a93a3a1E23fe174b9bF152",
+  "GODPANEL_ADDRESS": "0x66C687C73a1fb42FDF2391fc9Da90048189dD97d",
+  "MINT_MODULE_ADDRESS": "0xf5613ca1401e15438c11d331e4be4c55d67e1f98",
+  
+  "SCAN_LINK": "https://etherscan.io/address/0xF0eDb09401Ddf2bc56a93a3a1E23fe174b9bF152",
+  "NETWORK": {
+    "NAME": "Ethereum",
+    "SYMBOL": "ETH",
+    "ID": 1
+  },
+  "NFT_NAME": "GoBMaN GeNeRaTiveZ CLaImZ",
+  "SYMBOL": "KKGGC",
+ 
+
+
+  
+  "WEI_COST":0,
+  "DISPLAY_COST": 0,
+  "GAS_LIMIT": 286000,
+  "MARKETPLACE": "OpenSea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/kamp-kilmer-gobman-wuz-here",
+  "SHOW_BACKGROUND": true
+}
