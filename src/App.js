@@ -152,7 +152,7 @@ function App() {
     //let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     //let totalCostWei = String(cost * parsedGobmanTokenIds.length);
-    let totalGasLimit = String(gasLimit * parsedGobmanTokenIds.length);
+    let totalGasLimit = String(gasLimit + parsedGobmanTokenIds.length);
     //console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
     
@@ -193,7 +193,7 @@ function App() {
     //let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     //let totalCostWei = String(cost * parsedGodPanelTokenIds.length);
-    let totalGasLimit = String(gasLimit * parsedGodPanelTokenIds.length);
+    let totalGasLimit = String(gasLimit + parsedGodPanelTokenIds.length);
     //console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
     
@@ -463,9 +463,11 @@ async function onInit() {
                           getData();
                         }}
                       >
-                        {claimingGobMan ? "BiZy" : "ClAiMz 4 GoBmAn"}
+                        {claimingGobMan ? "BiZy" : "ClAiMz  GoBmAn"}
                       </StyledButton>
                     </s.Container>
+
+
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
@@ -476,7 +478,7 @@ async function onInit() {
                           getData();
                         }}
                       >
-                        {claimingGodpanel ? "BiZy" : "ClAiMz 4 GodPanel"}
+                        {claimingGodpanel ? "BiZy" : "ClAiMz GodPanel"}
                       </StyledButton>
                     </s.Container>
                     

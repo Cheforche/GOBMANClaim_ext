@@ -5,7 +5,7 @@
   "GODPANEL_ADDRESS": "0x66C687C73a1fb42FDF2391fc9Da90048189dD97d",
   "MINT_MODULE_ADDRESS": "0xf5613ca1401e15438c11d331e4be4c55d67e1f98",
   
-  "SCAN_LINK": "https://etherscan.io/address/0xF0eDb09401Ddf2bc56a93a3a1E23fe174b9bF152",
+  "SCAN_LINK": "https://etherscan.io/address/0xf5613ca1401e15438c11d331e4be4c55d67e1f98",
   "NETWORK": {
     "NAME": "Ethereum",
     "SYMBOL": "ETH",
@@ -21,6 +21,6 @@
   "DISPLAY_COST": 0,
   "GAS_LIMIT": 286000,
   "MARKETPLACE": "OpenSea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/kamp-kilmer-gobman-wuz-here",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/gobman-claimz",
   "SHOW_BACKGROUND": true
 }
