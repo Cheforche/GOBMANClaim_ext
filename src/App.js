@@ -206,7 +206,7 @@ function App() {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Oh NoZe, U BrOk SuMtHeNg: You either dont own the required token or You dont have enough to pay for gas");
+        setFeedback("Oh NoZe, U BrOk SuMtHeNg");
         setClaimingGobMan(false);
       
       })
