@@ -9,7 +9,7 @@ import styled from "styled-components";
 // Global variables for the token IDs, reassigned upon each init. Feel free to
 // move as needed
 let parsedGobmanTokenIds = [];
-let parsedGodPanelTokenIds = [];
+
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -113,14 +113,13 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [claimingGodpanel, setClaimingGodPanel] = useState(false);
+ 
   const [claimingGobMan, setClaimingGobMan] = useState(false);
-  const [feedback, setFeedback] = useState(`ClAiMz GoBMaN.`);
+  const [feedback, setFeedback] = useState();
 
   const [CONFIG, SET_CONFIG] = useState({
        
     GOBMAN_ADDRESS: "",
-    GODPANEL_ADDRESS: "",
     GOBMAN_CLAIM_ADDRESS:"",
     MINT_MODULE_ADDRESS:"",
     SCAN_LINK: "",
@@ -141,7 +140,41 @@ function App() {
   });
 
 
-
+  async function onInit() {
+    console.log(onInit);
+   
+    // Change from eth-rinkeby to eth-mainnet when ready to go live
+    const web3 = AlchemyWeb3.createAlchemyWeb3("https://eth-mainnet.g.alchemy.com/v2/fJQTi3ul71bQ7vKzzbwdQlgc4eDGE6vH");
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+  
+    const gobManNFTs = await web3.alchemy.getNfts({owner: account, contractAddresses: ["0xF0eDb09401Ddf2bc56a93a3a1E23fe174b9bF152"]});
+    parsedGobmanTokenIds = [];
+    
+    for (let i = 0; i < gobManNFTs.ownedNfts.length; i++) {
+      parsedGobmanTokenIds[i] = parseInt(gobManNFTs.ownedNfts[i].id.tokenId,16);
+    }
+  
+  
+    console.log("parsedGobmanTokenIds");
+    console.log(parsedGobmanTokenIds.length);
+    console.log(parsedGobmanTokenIds);
+   
+  
+    // Filter the Redeemed tokens
+  
+    // console.log("Filtering redeemed tokens")
+    // blockchain.smartContract.methods
+    //       .tokenRedeemed(CONFIG.COLLECTIVE_ADDRESS, CONFIG.GOBMAN_ADDRESS, 32)
+    //       .call({
+    //       to: CONFIG.MINT_MODULE_ADDRESS,
+    //       from: blockchain.account,
+    //     })
+    //     .then((receipt) => {
+    //       console.log(receipt);
+    //     });
+    
+  }
 
 
 
@@ -187,47 +220,10 @@ function App() {
         dispatch(fetchData(blockchain.account));
       });
   };
-  const claimGodPanel = () => {
 
-    
-    //let cost = CONFIG.WEI_COST;
-    let gasLimit = CONFIG.GAS_LIMIT;
-    //let totalCostWei = String(cost * parsedGodPanelTokenIds.length);
-    let totalGasLimit = String(gasLimit * parsedGodPanelTokenIds.length);
-    //console.log("Cost: ", totalCostWei);
-    console.log("Gas limit: ", totalGasLimit);
-    
-    setFeedback(`GoBMaN Mntng ${CONFIG.NFT_NAME}...`);
-    setClaimingGodPanel(true);
-   
-   
-    blockchain.smartContract.methods
-    
-        .redeemMany(CONFIG.GOBMAN_CLAIM_ADDRESS,CONFIG.GODPANEL_ADDRESS, parsedGodPanelTokenIds)
-        .send({
-          gasLimit: String(totalGasLimit),
-        to: CONFIG.MINT_MODULE_ADDRESS,
-        from: blockchain.account,
-        //value: totalCostWei,
-        
-       
-      })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("Oh NoZe, U BrOk SuMtHeNg: You either dont own the required token or You dont have enough to pay for gas");
-        setClaimingGodPanel(false);
-      
-      })
-      .then((receipt) => {
-        console.log(receipt);
-        setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
-        );
-        setClaimingGodPanel(false);
-       
-        dispatch(fetchData(blockchain.account));
-      });
-  };
+
+
+ 
 /*
   const decrementMintAmount = () => {
     let newMintAmount = mintAmount - 1;
@@ -245,49 +241,7 @@ function App() {
     setMintAmount(newMintAmount);
   };
 */
-async function onInit() {
-  console.log(onInit);
- 
-  // Change from eth-rinkeby to eth-mainnet when ready to go live
-  const web3 = AlchemyWeb3.createAlchemyWeb3("https://eth-mainnet.g.alchemy.com/v2/fJQTi3ul71bQ7vKzzbwdQlgc4eDGE6vH");
-  const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-  const account = accounts[0];
 
-  const gobManNFTs = await web3.alchemy.getNfts({owner: account, contractAddresses: ["0xF0eDb09401Ddf2bc56a93a3a1E23fe174b9bF152"]});
-  parsedGobmanTokenIds = [];
-  
-  for (let i = 0; i < gobManNFTs.ownedNfts.length; i++) {
-    parsedGobmanTokenIds[i] = parseInt(gobManNFTs.ownedNfts[i].id.tokenId,16);
-  }
-
-  const godPanelNFTs = await web3.alchemy.getNfts({owner: account, contractAddresses: ["0x66C687C73a1fb42FDF2391fc9Da90048189dD97d"]});
-  parsedGodPanelTokenIds = [];
-
-  for (let i = 0; i < godPanelNFTs.ownedNfts.length; i++) {
-    parsedGodPanelTokenIds[i] = parseInt(godPanelNFTs.ownedNfts[i].id.tokenId,16);
-  }
-
-  console.log("parsedGobmanTokenIds");
-  console.log(parsedGobmanTokenIds.length);
-  console.log(parsedGobmanTokenIds);
-  console.log("parsedGodPanelTokenIds");
-  console.log(parsedGodPanelTokenIds);
-  console.log(parsedGodPanelTokenIds.length);
-
-  // Filter the Redeemed tokens
-
-  // console.log("Filtering redeemed tokens")
-  // blockchain.smartContract.methods
-  //       .tokenRedeemed(CONFIG.COLLECTIVE_ADDRESS, CONFIG.GOBMAN_ADDRESS, 32)
-  //       .call({
-  //       to: CONFIG.MINT_MODULE_ADDRESS,
-  //       from: blockchain.account,
-  //     })
-  //     .then((receipt) => {
-  //       console.log(receipt);
-  //     });
-  
-}
 
 
 
@@ -391,14 +345,14 @@ async function onInit() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)", size:"45px" }}
                 >
-                 U ClAiMz Ur GoBMaN HeReZ {" "}
+                 THIS CLAIM IS FOR GOBMAN WUZ HERE HOLDER CLAIMZ {" "}
                   
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  GoBMaN CaN'T  CoNtRoLz  GaZ 
+                 
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -463,24 +417,13 @@ async function onInit() {
                           getData();
                         }}
                       >
-                        {claimingGobMan ? "BiZy" : "ClAiMz  GoBmAn"}
+                        {claimingGobMan ? "BiZy" : "Claim"}
                       </StyledButton>
                     </s.Container>
 
 
                     <s.SpacerSmall />
-                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                      <StyledButton
-                        disabled={claimingGodpanel ? 1 : 0}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          claimGodPanel();
-                          getData();
-                        }}
-                      >
-                        {claimingGodpanel ? "BiZy" : "ClAiMz GodPanel"}
-                      </StyledButton>
-                    </s.Container>
+                
                     
                    
 
